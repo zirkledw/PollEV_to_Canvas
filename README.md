@@ -3,7 +3,7 @@ A simple script to convert Poll Everywhere results into Canvas friendly csv file
 
 Basics of Grading
 
-This Ruby script uses Poll Everywhere gradebook csv files to create a canvas grade = Total points earned + Total answered.  It sets the Canvas Points Possible equal to the maximum score from the class.  
+This Ruby script uses Poll Everywhere gradebook csv files to create a canvas grade = Total points earned + Total answered.  This script automatically sets the Canvas Points Possible equal to the maximum score from the class.  
 
 Line 70 can be easily modified if you prefer to give correct responses a different weight relative to questions answered. 
 
@@ -21,6 +21,6 @@ There are two ways to use the script.  If you setup your reports in Poll Everywh
 
 If you prefer, you can input the class and module name directly when you run the script:
 
-ruby pev2canvas.rb nameoffiledownloadedfrompev.csv Grade_name_for_canvas XXX
+ruby pev2canvas.rb nameoffiledownloadedfrompev.csv Grade_name_for_canvas XXX ZZ
 
-The module namecannot have spaces, if you want it to be two words, use an underscore for the space.  XXX is the course number of the csv file.  
+The module name cannot have spaces, if you want it to be two words, use an underscore for the space.  XXX is the course number of the csv file and ZZ is the max score on the assignment.
