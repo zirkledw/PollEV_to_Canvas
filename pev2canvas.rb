@@ -20,21 +20,20 @@ def settings(file_name, module_name, course_number, max_score)
 
     course_number = file_name_parts[0]
     module_name = file_name_parts[1]
-    puts "Generated module name: #{module_name.capitalize}"
-    puts "Generated course number: #{course_number}"
-    if max_score != 0
-      puts "Max score will be #{max_score}."
-    else
-      puts "Max score will be equal to the highest score."
-    end
   end
-
-  puts "PEV results will be output to '#{module_name.capitalize}#{course_number}.csv'."
+  puts "Module name: #{module_name.capitalize}"
+  puts "Course number: #{course_number}"
+  if max_score != 0
+    puts "Max score will be #{max_score}."
+  else
+    puts "Max score will be equal to the highest score."
+  end
+  puts "PEV results will be output to '#{module_name.capitalize}-#{course_number}.csv'."
   settings_hash = {
     file_name: file_name,
     course_number: course_number,
     module_name: module_name,
-    max_score: max_score
+    max_score: max_score.to_i
   }
   return settings_hash
 end
@@ -101,5 +100,5 @@ canvas_array.each do |x|
   end
 end
 
-output_file = params[:module_name].capitalize + params[:course_number] + '.csv'
+output_file = params[:module_name].capitalize + '-' + params[:course_number] + '.csv'
 canvas_array.to_csv(output_file, params[:module_name])
